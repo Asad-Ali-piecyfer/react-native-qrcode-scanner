@@ -140,11 +140,9 @@ export default class QRCodeScanner extends Component {
 
   componentDidMount() {
     if (Platform.OS === 'ios') {
-      request(PERMISSIONS.IOS.CAMERA).then(cameraStatus => {
-        this.setState({
-          isAuthorized: cameraStatus === RESULTS.GRANTED,
-          isAuthorizationChecked: true,
-        });
+      this.setState({
+        isAuthorized: true,
+        isAuthorizationChecked: true,
       });
     } else if (
       Platform.OS === 'android' &&
